@@ -35,7 +35,7 @@ function fromLowerCamelCase()
 			editor.selections.forEach(sel => {
 				const range = sel.isEmpty ? document.getWordRangeAtPosition(sel.start) || sel : sel;
 				let word = document.getText(range);
-				let hyphened = word.split('').map((c, index) => (index > 0 && c == c.toUpperCase() ? '-' + c.toUpperCase() : c)).join('');
+				let hyphened = word.split('').map((c, index) => (index > 0 && c == c.toUpperCase() ? '-' + c.toLocaleLowerCase() : c)).join('');
 
 				editBuilder.replace(range, hyphened);
 			})
