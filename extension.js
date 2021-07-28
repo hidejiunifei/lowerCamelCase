@@ -1,7 +1,6 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
-const fs = require('fs');
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -35,7 +34,7 @@ function fromLowerCamelCase()
 			editor.selections.forEach(sel => {
 				const range = sel.isEmpty ? document.getWordRangeAtPosition(sel.start) || sel : sel;
 				let word = document.getText(range);
-				let hyphened = word.split('').map((c, index) => (index > 0 && c == c.toUpperCase() ? '-' + c.toLocaleLowerCase() : c)).join('');
+				let hyphened = word.split('').map((c, index) => (index > 0 && c == c.toUpperCase() && c != ' ' ? '-' + c.toLocaleLowerCase() : c)).join('');
 
 				editBuilder.replace(range, hyphened);
 			})
