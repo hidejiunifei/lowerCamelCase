@@ -1,5 +1,4 @@
-# closest-color README
+# upper Camel case to lower README
 
-Find colors closest to a list configured in a css file
-
+Convert lower Camel case to Upper and vice versa
 **Enjoy!**
